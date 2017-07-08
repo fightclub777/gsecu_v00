@@ -11,19 +11,19 @@ public class HomeController {
 	@RequestMapping(value="/admin/h", method=RequestMethod.GET)
 	public String highAdmin(Model model) {
 		model.addAttribute("msg", "최고");
-		return "in";
+		return "admin/high_admin";
 	}
 
 	@RequestMapping(value="/admin/m", method=RequestMethod.GET)
 	public String middleAdmin(Model model) {
 		model.addAttribute("msg", "중간");
-		return "in";
+		return "admin/low_admin";
 	}
 
 	@RequestMapping(value="/admin/l", method=RequestMethod.GET)
 	public String lowAdmin(Model model) {
 		model.addAttribute("msg", "실무");
-		return "in";
+		return "admin/middle_admin";
 	}
 	
 	@RequestMapping(value="/user/in", method=RequestMethod.GET)
