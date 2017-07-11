@@ -67,8 +67,34 @@
 				<artifactId>spring-security-config</artifactId>
 				<version>${spring-framework-security.version}</version>
 			</dependency>
+	3.2. web.xml, servlet-context.xml을 설정.
+		1) web.xml 설정.
+			<servlet>
+				<servlet-name>dispatcher</servlet-name>
+				<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+				<init-param>
+					<param-name>contextConfigLocation</param-name>
+					<param-value>/WEB-INF/spring-servlet.xml</param-value>
+				</init-param>
+				<load-on-startup>1</load-on-startup>
+			</servlet>
+			<servlet-mapping>
+				<servlet-name>dispatcher</servlet-name>
+				<url-pattern>/</url-pattern>
+			</servlet-mapping>
+		2) servlet-context.xml 설정.
+			<context:component-scan base-package="net.gongple.gsecu" />
+			<mvc:annotation-driven />
+			<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			    <property name="prefix">
+			        <value>/WEB-INF/views/</value>
+			    </property>
+			    <property name="suffix">
+			        <value>.jsp</value>
+			    </property>
+			</bean>
 			
-	3.2. 사용자 인증 및 권한 처리에 대한 테스트 시나리오 수립.
+	3.3. 사용자 인증 및 권한 처리에 대한 테스트 시나리오 수립.
 		1) 사용자의 역할을 구분하자.
 			1-1) 사용자는 '관리자'와 '사용자'로 역할을 구분한다.
 			1-2) 관리자는 '최고관리자', '중간관리자', '실무관리자'로 역할을 구분한다.
