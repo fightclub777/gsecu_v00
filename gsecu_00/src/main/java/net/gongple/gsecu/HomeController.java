@@ -37,5 +37,10 @@ public class HomeController {
 		model.addAttribute("msg", "OUT");
 		return "out";
 	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(Model model) {
+		return "redirect:/";
+	}
 
 }
