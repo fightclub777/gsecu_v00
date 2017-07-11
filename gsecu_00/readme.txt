@@ -82,6 +82,7 @@
 				<servlet-name>dispatcher</servlet-name>
 				<url-pattern>/</url-pattern>
 			</servlet-mapping>
+			
 		2) servlet-context.xml 설정.
 			<context:component-scan base-package="net.gongple.gsecu" />
 			<mvc:annotation-driven />
